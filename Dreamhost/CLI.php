@@ -4,35 +4,22 @@ namespace Dreamhost;
 
 use HaydenPierce\ClassFinder\ClassFinder;
 use League\CLImate\CLImate;
+use Symfony\Component\Console\Application;
+use Dreamhost\CLI\Setup;
 
 abstract class CLI
 {
     private static $cli = null;
 
-    /**
-     * Get CLImate instance.
-     *
-     * @param boolean $something
-     * @return CLImate
-     */
-    final public static function getInstance($something = true)
+    private static function bootstrap()
     {
-        if (is_null(self::$cli)) {
-            self::$cli = new CLImate();
-            self::$cli->addArt(__DIR__ . '/CLI/art/');
-        }
-
-        return self::$cli;
+        Setup::registerCommands(self::getInstance());
     }
 
-    /**
-     * Bootstrap CLI.
-     *
-     * @return void
-     */
-    final public static function run()
+    private static function flashLogo()
     {
-        $climate = self::getInstance();
+        $climate = new CLImate();
+        $climate->addArt(__DIR__.'/CLI/art');
         $climate->clear();
 
         $climate->animation('dreamhost')->enterFrom('bottom');
@@ -45,6 +32,38 @@ abstract class CLI
 
         $climate->clear();
 
+        unset($climate);
+    }
+
+    /**
+     * Get Application instance.
+     *
+     * @param boolean $something
+     * @return Application
+     */
+    final public static function getInstance($something = true)
+    {
+        if (is_null(self::$cli)) {
+            self::$cli = new Application('Dreamhost API');
+        }
+
+        return self::$cli;
+    }
+
+    /**
+     * Bootstrap CLI.
+     *
+     * @return void
+     */
+    final public static function run()
+    {
+        self::flashLogo();
+        self::bootstrap();
+
+        self::getInstance()->run();
+
+        /* $climate = self::getInstance();
+
         while (true) {
             self::outputOrderedList(self::getCommands());
 
@@ -53,7 +72,9 @@ abstract class CLI
             }
 
             sleep(2);
-        }
+        } */
+
+
     }
 
     /**
