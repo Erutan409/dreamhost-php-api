@@ -1,8 +1,8 @@
 <?php
 
-namespace Dreamhost\Command;
+namespace Erutan409\Dreamhost\Command;
 
-use Dreamhost\API;
+use Erutan409\Dreamhost\API;
 
 /**
  * Dreamhost User API

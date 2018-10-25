@@ -1,6 +1,6 @@
 <?php
 
-namespace Dreamhost\Exception;
+namespace Erutan409\Dreamhost\Exception;
 
 use Dreamhost;
 

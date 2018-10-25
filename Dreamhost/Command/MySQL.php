@@ -1,8 +1,8 @@
 <?php
 
-namespace Dreamhost\Command;
+namespace Erutan409\Dreamhost\Command;
 
-use Dreamhost\API;
+use Erutan409\Dreamhost\API;
 
 class MySQL extends API
 {
@@ -95,32 +95,32 @@ class MySQL extends API
         $hostname
     ) {}
 
-        /**
-         * Removes a database user from a database.
-         *
-         * @param string $db The database from which the user should be removed
-         * @param string $user The username for the new user
-         * @param string $select Y or N
-         * @param string $insert Y or N
-         * @param string $update Y or N
-         * @param string $delete Y or N
-         * @param string $create Y or N
-         * @param string $drop Y or N
-         * @param string $index Y or N
-         * @param string $alter Y or N
-         *
-         * @return void
-         */
-        public function remove_user(
-            $db,
-            $user,
-            $select,
-            $insert,
-            $update,
-            $delete,
-            $create,
-            $drop,
-            $index,
-            $alter
-        ) {}
+    /**
+     * Removes a database user from a database.
+     *
+     * @param string $db The database from which the user should be removed
+     * @param string $user The username for the new user
+     * @param string $select Y or N
+     * @param string $insert Y or N
+     * @param string $update Y or N
+     * @param string $delete Y or N
+     * @param string $create Y or N
+     * @param string $drop Y or N
+     * @param string $index Y or N
+     * @param string $alter Y or N
+     *
+     * @return void
+     */
+    public function remove_user(
+        $db,
+        $user,
+        $select,
+        $insert,
+        $update,
+        $delete,
+        $create,
+        $drop,
+        $index,
+        $alter
+    ) {}
 }

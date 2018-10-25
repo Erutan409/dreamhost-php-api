@@ -1,6 +1,6 @@
 <?php
 
-namespace Dreamhost\CLI\Command;
+namespace Erutan409\Dreamhost\CLI\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

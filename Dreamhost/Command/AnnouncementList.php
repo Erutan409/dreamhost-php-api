@@ -1,9 +1,9 @@
 <?php
 
-namespace Dreamhost\Command;
+namespace Erutan409\Dreamhost\Command;
 
-use Dreamhost\API;
-use Dreamhost\Exception\AnnouncementListException;
+use Erutan409\Dreamhost\API;
+use Erutan409\Dreamhost\Exception\AnnouncementListException;
 
 /**
  * Dreamhost Announcement List API

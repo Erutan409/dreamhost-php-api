@@ -1,6 +1,6 @@
 <?php
 
-namespace Dreamhost;
+namespace Erutan409\Dreamhost;
 
 abstract class Helpers
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dreamhost\Exception;
+namespace Erutan409\Dreamhost\Exception;
 
-use Dreamhost;
+use Erutan409\Dreamhost;
 
 class MailException extends Dreamhost\Exception
 {

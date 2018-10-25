@@ -1,9 +1,9 @@
 <?php
 
-namespace Dreamhost\CLI;
+namespace Erutan409\Dreamhost\CLI;
 
 use Symfony\Component\Console\Application;
-use Dreamhost\CLI\Command\APIKey;
+use Erutan409\Dreamhost\CLI\Command\APIKey;
 
 
 abstract class Setup
