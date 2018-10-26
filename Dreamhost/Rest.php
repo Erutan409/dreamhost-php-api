@@ -2,45 +2,34 @@
 
 namespace Erutan409\Dreamhost;
 
-use Erutan409\Dreamhost\API;
-
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Psr7\Response;
 
 abstract class Rest
 {
-    /**
-     * Filters Guzzle request options.
-     *
-     * @param array $options
-     *
-     * @return $options
-     */
-    final protected function filterOptions(array $options)
-    {
-        $options['http_errors'] = true;
-
-        return $options;
-    }
+    const API_ENDPOINT = 'https://api.dreamhost.com/?cmd=%s&key=%s&format=json';
 
     /**
-     * Do REST call to Dreamhost API.
+     * Do REST call.
      *
-     * @param string $method
-     * @param string $uri
      * @param array $options
-     *
-     * @return Response
-     * @throws GuzzleException
+     * @return object|false
      */
-    final protected function request(string $method, string $uri, array $options = [])
+    final protected static function request(array $options = [])
     {
+        $uri = sprintf(
+            self::API_ENDPOINT,
+            strtolower(current(array_reverse(explode('\\', static::class))))
+            . '-' . debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS)[1]['function'],
+            'somekey'
+        );
+
+        return $uri;
+
         try {
-            return (new Client())->request($method, $uri, self::filterOptions($options));
-        } catch (ClientException $e) {
-            return $e->getResponse();
+            return json_decode((new Client())->request('GET', $uri, $options)->getBody());
+        } catch (GuzzleException $e) {
+            return false;
         }
     }
 }

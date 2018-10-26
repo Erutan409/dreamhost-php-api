@@ -21,7 +21,7 @@ abstract class Account extends API
      */
     public static function domain_usage()
     {
-
+        return self::request();
     }
 
     /**

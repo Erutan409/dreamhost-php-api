@@ -6,6 +6,7 @@ use HaydenPierce\ClassFinder\ClassFinder;
 use League\CLImate\CLImate;
 use Symfony\Component\Console\Application;
 use Erutan409\Dreamhost\CLI\Setup;
+use Erutan409\Dreamhost\Command\Account;
 
 abstract class CLI
 {
@@ -28,6 +29,11 @@ abstract class CLI
 
         $climate->clear();
         $climate->animation('dreamhost')->exitTo('top');
+        $climate->clear();
+
+        $climate->out(Account::domain_usage());
+        sleep(50);
+
         $climate->clear();
 
         unset($climate);
